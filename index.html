@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Movies</title>
+</head>
+<body>
+    
+    <header>
+        <div class="container"></div>
+    </header>
+
+    <section>
+        <div class="hero">
+            <div class="container">
+                <h1 class="hero__heading text-center mb-5">Movies catalog</h1>
+
+                <div class="row">
+                    <div class="col-4">
+                        <form class="hero__form d-flex flex-column gap-3 mb-4 flex-lg-wrap">
+                            <input class="form__search form-control" type="text" placeholder="Name">
+                            
+                            <input class="form__year form-control" step="0.5" min="1900" max="2023" type="number" name="year" placeholder="Year">
+                            
+                            <input class="form__rating form-control" min="0" max="10" step="0.1" type="text" name="rating" placeholder="5">
+
+                            <div class="hero__category__select">
+                                <select class="form__category form-select">
+                                    <option value="all">All</option>
+                                </select>
+                            </div>
+
+                            <div class="hero__rating">
+                                <select class="hero__rating__select form-select">
+                                    <option selected value="none">None</option>
+                                    <option value="rating__high-low">Rating (high to low)</option>
+                                    <option value="rating__low-high">Rating (low to high)</option>
+                                    <option value="year__high-low">Year (high to low)</option>
+                                    <option value="year__low-high">Year (low to high)</option>
+                                    <option value="a-z">A-Z</option>
+                                    <option value="z-a">Z-A</option>
+                                </select>
+                            </div>
+
+                            <button id="form__id" class="btn btn-primary w-100">Search</button>
+                        </form>
+
+                        <h3 class="hero__bookmarked__heading text-center mb-3">Bookmarked movies</h3>
+                        <ul class="hero__list">
+                            <li class="hero__item list-group-item p-4 border border-1 border-opacity-50">
+                                <h4 class="bookmark__title d-inline-block text-truncate">Bookmarked movies</h4>
+                               
+                    
+                                <div class="d-flex justify-content-between mt-2">
+                                    <a href="#" class="btn btn-outline-primary movies__url movies__info-link">Watch trailer</a>
+                                    <button type="button" class="btn btn-outline-info more__info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>
+                                    <button class="bookmark__btn btn btn-danger btn-sm d-block">Remove</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-8">
+                        <h3 class="fs-5 mb-2">Search result: <span class="hero__render__result">0</span>/<span class="hero__result__number">0</span></h3>
+                        <div class="alert alert-primary my-0 mb-4">
+                            Use the form on the left to search for a movie
+                        </div>
+
+                        <ul class="pagination d-flex justify-content-center pagination__wrapper flex-wrap">
+                            
+                        </ul>
+
+                        <div class="row d-flex flex-column flex-lg-row">
+                            <div class="col-12 d-flex flex-wrap gap-4 movie__wrapper">
+                                <div class="card">
+                                    <img class="card__img__top" src="./images/1.jpeg" alt="">
+                                    
+                                    <div class="card__body p-3">
+                                        <h3 class="card__body__text fw-normal mb-2">Patton Oswalt: Annihilation</h3>
+
+                                        <div class="card__clock__wrapper d-flex align-items-center gap-2 mb-2">
+                                            <img class="card__clock__img" src="./images/clock.svg" alt="" width="20" height="20">
+                                            <p class="card__movies__year">2017</p>
+                                        </div>
+
+                                        <div class="card__star__wrapper d-flex align-items-center gap-2 ">
+                                            <img src="./images/star-1.svg" alt="" width="20" height="20">
+                                            <p class="card__movies__rating">7.4</p>
+                                        </div>
+
+                                        <div>
+                                            <p class="card__movies__categories">Uncategorized</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <a href="#" class="btn btn-outline-primary movies__url movies__info-link">Watch trailer</a>
+                                            <button type="button" class="btn btn-outline-info more__info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>
+                                            <button type="button" class="btn btn-outline-success bookmark__btn">Bookmark</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <template id="movies__template__card">
+        <div class="card">
+            <img class="movies__img" src="./images/1.jpeg" alt="">
+            
+            <div class="card__body p-3">
+                <h3 class="movies__title fw-normal mb-2">Patton Oswalt: Annihilation</h3>
+
+                <div class="card__clock__wrapper d-flex align-items-center gap-2 mb-2">
+                    <img class="card__clock__img" src="./images/clock.svg" alt="" width="20" height="20">
+                    <p class="movies__year">2017</p>
+                </div>
+
+                <div class="card__star__wrapper d-flex align-items-center gap-2 ">
+                    <img src="./images/star-1.svg" alt="" width="20" height="20">
+                    <p class="movies__rating">7.4</p>
+                </div>
+
+                <div>
+                    <p class="movies__categories">Uncategorized</p>
+                </div>
+
+                <div class="d-flex justify-content-between mt-2">
+                    <a href="#" class="btn btn-outline-primary movies__url movies__info-link">Watch trailer</a>
+                    <button type="button" class="btn btn-outline-info more__info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>
+                    <button type="button" class="btn btn-outline-success bookmark__btn">Bookmark</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="./js/movies.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/bootstrap.js"></script>
+</body>
+</html>

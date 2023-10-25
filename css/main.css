@@ -1,0 +1,35 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.movies__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;    
+}
+
+.movies__item {
+    width: 400px;
+}
+
+.card {
+    max-width: 400px;
+    width: 100%;
+}
+
+.card__img__top {
+    width: 400px;
+    height: 230px;
+    object-fit: cover;
+}
